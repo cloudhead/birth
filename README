@@ -1,0 +1,18 @@
+
+NAME
+    birth - graceful linux system birthing
+
+SYNOPSIS
+    birth HOST [OPTIONS]
+
+DESCRIPTION
+    birth is a group of bash scripts used to get bare linux systems up and running.
+
+NOTES
+    birth was only tested on Arch Linux, but should work on other Linux distros too.
+
+AUTHOR
+    Written by Alexis Sellier
+
+COPYRIGHT
+    Copyright (c) 2011 Alexis Sellier

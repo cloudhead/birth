@@ -1,0 +1,61 @@
+#!/bin/bash
+
+set -e
+
+HOST=
+IDENTITY=
+PORT=
+
+export BIRTH_ROOT=`dirname $0`
+
+source $BIRTH_ROOT/lib/include.sh
+
+usage () {
+  echo "usage: `basename $0` host [options]"
+  echo
+  echo "options:"
+  echo "  -i <key>    private key"
+  echo "  -p <port>   remote ssh port"
+  echo "  -h          show this message"
+  echo "  -v          verbose mode"
+  exit 0
+}
+
+main () {
+  local username=
+
+  if [[ $1 != -* ]]; then
+    HOST=$1
+    shift
+  fi
+
+  while getopts "i:p:hv" option
+  do
+    case $option in
+      h)
+        usage
+        exit 0
+        ;;
+      i)
+        IDENTITY=$OPTARG
+        ;;
+      p)
+        PORT=$OPTARG
+        ;;
+      \?)
+        usage
+        exit 0
+        ;;
+    esac
+  done
+
+  echo
+  log "${BOLD}birth$CLEAR starting."
+  echo
+
+  prompt "username" "`whoami`" username
+
+  scripts/bootstrap.sh $username $HOST $PORT
+}
+
+main "$@"

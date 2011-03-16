@@ -3,13 +3,13 @@
 source $BIRTH_ROOT/lib/include.sh
 
 main () {
-  log "uncomment '%wheel  ALL=(ALL) ALL'\
-       to allow users in group 'wheel' to run \`sudo\`."
+  local sudoers="etc/sudoers.d/wheel"
 
-  echo -n "$MARKER [return] to launch visudo. "
-  read
+  log "copying $BIRTH_ROOT/$sudoers -> /$sudoers"
 
-  visudo
+  cp $BIRTH_ROOT/$sudoers /$sudoers
+
+  return 0
 }
 
 main "$@"

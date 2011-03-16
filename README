@@ -6,10 +6,31 @@ SYNOPSIS
     birth HOST [OPTIONS]
 
 DESCRIPTION
-    birth is a group of bash scripts used to get bare linux systems up and running.
+    Birth is a group of bash scripts used to get remote bare linux systems
+    up and running. Birth connects to remote host HOST, copies itself over,
+    and runs remotely in an interactive manner.
+
+    The user my choose to skip any birthing STEPS during the process.
+
+OPTIONS
+    -p PORT        Remote port. Passed to scp and ssh.
+
+    -i IDENTITY    Identity file. Passed to scp and ssh.
+
+STEPS
+    sys         Update and install system packages
+    user        Setup admin user account
+    dotfiles    Setup user dotfiles
+    http        Setup http related services
+    dotfiles    Setup admin dotfiles
+    iptables    Setup basic firewall
+    ssh         Setup sshd
+    node        Download & install node
+    sudo        Setup sudo for admin
 
 NOTES
-    birth was only tested on Arch Linux, but should work on other Linux distros too.
+    birth was only tested on Arch Linux, but should (mostly) work on other Linux
+    distros too.
 
 AUTHOR
     Written by Alexis Sellier

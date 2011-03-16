@@ -22,8 +22,11 @@ main () {
   trap interrupt SIGINT
 
   birth "sys"      "update and install system packages" $@
+  birth "user"     "setup admin user account"           $@
+  birth "dotfiles" "setup user dotfiles"                $@
   birth "http"     "setup http related services"        $@
   birth "dotfiles" "setup admin dotfiles"               $@
+  birth "iptables" "setup basic firewall"               $@
   birth "ssh"      "setup sshd"                         $@
   birth "node"     "download & install node"            $@
   birth "sudo"     "setup sudo for admin"               $@

@@ -8,6 +8,11 @@ main () {
   USERNAME="$1"
   HOST="$2"
   PORT=${3:-"22"}
+  ID=$4
+
+  if [ $ID ]; then
+    ID="-i $ID";
+  fi
 
   init
 }
@@ -26,11 +31,11 @@ init () {
 
   echo ". scripts/boot.sh $USERNAME" > /tmp/.profile
 
-  scp -q -r -C -P $PORT $SELF /tmp/.profile $publickey root@$HOST:
+  scp -q -r -C -P $PORT $ID $SELF /tmp/.profile $publickey root@$HOST:
 
   log "connecting to remote host $HOST.."
 
-  ssh -p $PORT root@$HOST
+  ssh -p $PORT $ID root@$HOST
 }
 
 main "$@"

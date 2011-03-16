@@ -64,7 +64,7 @@ main () {
 
   prompt "username" "`whoami`" username
 
-  scripts/bootstrap.sh $username $HOST $PORT
+  scripts/bootstrap.sh $username $HOST $PORT $IDENTITY
 }
 
 main "$@"

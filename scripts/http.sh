@@ -9,6 +9,9 @@ main () {
 
   cd /srv/http
   chown root:http .
+
+  /etc/rc.d/redis   start
+  /etc/rc.d/couchdb start
 }
 
 main "$@"

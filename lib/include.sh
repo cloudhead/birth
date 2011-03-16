@@ -15,7 +15,7 @@ log () {
 ask () {
   local answer=
 
-  echo -n "$1 "
+  echo -en "$MARKER $1 "
   read answer
 
   if [ "$answer" = "y" ] || [ -z "$answer" ]; then

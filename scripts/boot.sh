@@ -28,6 +28,8 @@ main () {
   birth "node"     "download & install node"            $@
   birth "sudo"     "setup sudo for admin"               $@
 
+  log "birthing ${BOLD}complete${CLEAR}."
+
   cleanup
 
   log "logging out."

@@ -21,10 +21,11 @@ main () {
 
   log "setting up home directory for $user"
 
-  sudo -u $user  mkdir -p /home/$user/src                  # Create source-code directory
-  sudo -u $user  mkdir -p /home/$user/.ssh                 # Create ssh directory
-  sudo -u $user  touch    /home/$user/.ssh/authorized_keys # Create authorized_keys file
-  sudo -u $user  chmod -R g=,o= /home/$user/.ssh           # Restrict permissions to .ssh folder
+  sudo -u $user  mkdir -p  /home/$user/src                  # Create source-code directory
+  sudo -u $user  mkdir -p  /home/$user/.ssh                 # Create ssh directory
+  sudo -u $user  touch     /home/$user/.ssh/authorized_keys # Create authorized_keys file
+  sudo -u $user  chmod 700 /home/$user/.ssh                 # Restrict permissions to .ssh folder
+  sudo -u $user  chmod 600 /home/$user/.ssh/authorized_keys # Restrict permissions to authorized_keys
 }
 
 main "$@"

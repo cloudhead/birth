@@ -4,14 +4,16 @@ source $BIRTH_ROOT/lib/include.sh
 
 main () {
   local username=$1
-  local url=
 
-  echo birth: retrieving dotfiles...
+  cd $BIRTH_ROOT/lib/home
 
-  prompt "dotfiles repo" "git://github.com/$username/dotfiles.git" url
+  log "copying files to home directory.."
 
-  # Initialize user settings
-  sudo -u $username git clone $url /home/$username
+  # Copy dotfiles to home directory
+  cp    -r {.zshrc,.profile,.vimrc,.vim} /home/$username/
+  chown -R $username:$username           /home/$username/
+
+  cd $BIRTH_ROOT
 }
 
 main "$@"

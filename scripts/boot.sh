@@ -66,13 +66,18 @@ birth () {
 
   shift
 
-  echo -ne "$MARKER birth ${BOLD}$step${CLEAR} ${GREY}($desc)${CLEAR} "
+  local answer=
 
-  ask "[Y/n]?" || return 0
+  echo -ne "$MARKER birth ${BOLD}$step${CLEAR}? - ${GREY}$desc${CLEAR} [Y/n] "
 
-  log "birthing ${BOLD}$step${CLEAR}.."
+  read answer
 
-  $BIRTH_ROOT/scripts/$step.sh $@ || log "$step birth failed."
+  if [ "$answer" ] && [ "$answer" != "y" ] && [ "$answer" != "Y" ]; then
+    return 0
+  else
+    log "birthing ${BOLD}$step${CLEAR}.."
+    $BIRTH_ROOT/scripts/$step.sh $@ || log "$step birth failed."
+  fi
 }
 
 main "$@"

@@ -22,17 +22,15 @@ init () {
     exit 1
   fi
 
-  log "connecting to remote host $HOST.."
-
-  scp -q -r -C -P $PORT $PWD $publickey root@$HOST:/tmp
-
   log "copying files to remote host.."
 
-  remote "/tmp/birth/scripts/boot.sh $USERNAME"
-}
+  echo ". scripts/boot.sh $USERNAME" > /tmp/.profile
 
-remote () {
-  ssh -p $PORT root@$HOST "$1"
+  scp -q -r -C -P $PORT $SELF /tmp/.profile $publickey root@$HOST:
+
+  log "connecting to remote host $HOST.."
+
+  ssh -p $PORT root@$HOST
 }
 
 main "$@"

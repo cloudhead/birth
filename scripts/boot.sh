@@ -2,7 +2,7 @@
 
 set -e
 
-export BIRTH_ROOT=/tmp/birth
+export BIRTH_ROOT=/root
 
 source $BIRTH_ROOT/lib/include.sh
 
@@ -44,7 +44,12 @@ interrupt () {
 
 cleanup () {
   log "cleaning up.."
-  rm -rf $BIRTH_ROOT
+
+  rm -rf $BIRTH_ROOT/scripts
+  rm -rf $BIRTH_ROOT/lib
+  rm -rf $BIRTH_ROOT/etc
+  rm     $BIRTH_ROOT/.profile
+  rm     $BIRTH_ROOT/id_rsa.pub
 }
 
 birth () {

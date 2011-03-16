@@ -2,6 +2,8 @@
 
 source $BIRTH_ROOT/lib/include.sh
 
+SELF="etc lib scripts"
+
 main () {
   USERNAME="$1"
   HOST="$2"

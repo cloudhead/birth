@@ -21,6 +21,12 @@ usage () {
   exit 0
 }
 
+interrupt () {
+  echo
+  log "caught SIGINT."
+  exit 0
+}
+
 main () {
   local username=
 
@@ -51,7 +57,10 @@ main () {
 
   echo
   log "${BOLD}birth$CLEAR starting."
+  log "Ctrl-C to exit."
   echo
+
+  trap interrupt SIGINT
 
   prompt "username" "`whoami`" username
 

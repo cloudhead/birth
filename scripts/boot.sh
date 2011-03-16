@@ -19,7 +19,8 @@ main () {
   export EDITOR=vim
   export PATH="/usr/local/bin:$PATH"
 
-  birth "user"     "setup admin user account"           $@
+  trap interrupt SIGINT
+
   birth "sys"      "update and install system packages" $@
   birth "http"     "setup http related services"        $@
   birth "dotfiles" "setup admin dotfiles"               $@
@@ -28,6 +29,17 @@ main () {
   birth "sudo"     "setup sudo for admin"               $@
 
   cleanup
+
+  log "logging out."
+
+  exit 0
+}
+
+interrupt () {
+  echo
+  log "caught SIGINT."
+  cleanup
+  exit 0
 }
 
 cleanup () {

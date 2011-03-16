@@ -1,0 +1,6 @@
+#
+# birth - /etc/sudoers.d/wheel
+# Allow users in group 'wheel' to run all commands
+#
+%wheel ALL=(ALL) ALL
+

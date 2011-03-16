@@ -1,0 +1,19 @@
+# This is the sshd server system-wide configuration file.
+# See sshd_config(5) for more information.
+
+Port 22222
+Protocol 2
+
+PermitRootLogin no
+RSAAuthentication yes
+PubkeyAuthentication yes
+AuthorizedKeysFile	.ssh/authorized_keys
+PasswordAuthentication no
+ChallengeResponseAuthentication no
+UsePAM no
+UseDNS no
+Banner none
+
+# override default of no subsystems
+Subsystem	sftp	/usr/lib/ssh/sftp-server
+

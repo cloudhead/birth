@@ -10,7 +10,7 @@ DESCRIPTION
     up and running. Birth connects to remote host HOST, copies itself over,
     and runs remotely in an interactive manner.
 
-    The user my choose to skip any birthing STEPS during the process.
+    The user may choose to skip any birthing STEPS during the process.
 
 OPTIONS
     -p PORT        Remote port. Passed to scp and ssh.

@@ -5,7 +5,7 @@ source $BIRTH_ROOT/lib/include.sh
 main () {
   local version=""
 
-  echo -n "$MARKER node version: "
+  echo -e -n "$MARKER node version: "
 
   read version
 

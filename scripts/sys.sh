@@ -27,6 +27,8 @@ main () {
   locale-gen
 
   ask "edit /etc/rc.conf? [Y/n]" && $EDITOR /etc/rc.conf
+
+  return 0
 }
 
 main "$@"

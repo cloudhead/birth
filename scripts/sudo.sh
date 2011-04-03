@@ -8,6 +8,7 @@ main () {
   log "copying $BIRTH_ROOT/$sudoers -> /$sudoers"
 
   cp $BIRTH_ROOT/$sudoers /$sudoers
+  chmod 0440              /$sudoers
 
   return 0
 }

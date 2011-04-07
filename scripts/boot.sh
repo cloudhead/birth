@@ -23,6 +23,7 @@ main () {
 
   birth "sys"      "update and install system packages" $@
   birth "user"     "setup admin user account"           $@
+  birth "resolv"   "setup nameservers (google)"         $@
   birth "dotfiles" "setup user dotfiles"                $@
   birth "http"     "setup http related services"        $@
   birth "dotfiles" "setup admin dotfiles"               $@

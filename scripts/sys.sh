@@ -9,6 +9,7 @@ PACKAGES="bash zsh gcc make util-linux-ng python python2 python2-distribute \
 main () {
   log "updating system..."
 
+  pacman-db-upgrade                   # Upgrade database file format
   pacman --noconfirm -Syu || return 1 # This will just update pacman
   pacman --noconfirm -Syu || return 1 # Now we actually update everything else
 
